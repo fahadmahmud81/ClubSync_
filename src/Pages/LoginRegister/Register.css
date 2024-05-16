@@ -1,0 +1,45 @@
+/* #0A4644 */
+.disabledBtn {
+    align-items: center;
+    appearance: button;
+    background-color: white;
+    border-radius: 28px;
+    border: 2px solid #0A4644;
+    color: #0A4644;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    font-size: 100%;
+    font-weight: 500;
+    line-height: 1.15;
+    margin: 0;
+    padding: 10px 28px;
+    text-align: center;
+    text-transform: none;
+    transition: color .13s ease-in-out, background .13s ease-in-out, opacity .13s ease-in-out, box-shadow .13s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.disabledBtn:active {
+    background-color: #0A4644;
+    color: white;
+}
+
+.disabledBtn:hover {
+    background-color: #0A4644;
+    color: white;
+}
+
+/* Add disabled button styles */
+.disabledBtn[disabled] {
+    cursor: not-allowed;
+    background-color: #ccc;
+    /* You can use a different color for a disabled look */
+    color: #666;
+    /* Adjust the text color for a disabled look */
+    border: 2px solid #ccc;
+    /* You can change the border color as well */
+    /* You can add any other styles you want for a disabled button here */
+}

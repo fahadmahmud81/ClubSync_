@@ -1,0 +1,10 @@
+@media only screen and (min-width: 768px) {
+    .stickyStyle {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        align-self: flex-start;
+        /* background-color: #afafaf; */
+
+    }
+}

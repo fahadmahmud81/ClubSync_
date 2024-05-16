@@ -1,0 +1,36 @@
+.linkCss {
+    padding-bottom: 10px;
+    border-bottom: 8px solid #0A4644;
+    transition: transform 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+}
+
+.linkCss:hover {
+    border-bottom: 8px solid #21D182;
+
+}
+
+.navLinkCss {
+    border-bottom: 8px solid #21D182;
+}
+
+.paddingCss {
+    padding-top: 25px;
+
+}
+
+.smLinkCss {
+    padding-left: 25px;
+    border-left: 8px solid #0A4644;
+
+}
+
+.smLinkCss:hover {
+    border-left: 8px solid #21D182;
+
+}
+
+.smNavLinkCss {
+    padding-left: 25px;
+    border-left: 8px solid #21D182;
+
+}
