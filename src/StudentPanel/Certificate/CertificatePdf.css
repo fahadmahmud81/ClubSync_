@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+
+/* https://i.ibb.co/61QcqKz/Fahadcer.png */
+
+
+
+.full {
+    position: relative;
+    height: 794px;
+    width: 1122.5px;
+    background-image: url('https://i.ibb.co/61QcqKz/Fahadcer.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* html,
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.certificateBody {}
+
+.logo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.logo {
+    padding-top: 25px;
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    height: 120px;
+    width: 120px;
+}
+
+.name {
+    position: absolute;
+    top: 49.5%;
+    left: 50%;
+    width: 800px;
+    /* background-color: yellow; */
+    transform: translate(-50%, -50%);
+    color: #E1A730;
+    font-size: 60px;
+    font-family: "Pinyon Script", cursive;
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.additional-text {
+    width: 70%;
+    line-height: 1.3;
+    position: absolute;
+    top: calc(50% + 45px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: #1E3653;
+    font-family: "TT Chocolates", sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+.another-text {
+    position: absolute;
+
+    width: 600px;
+    top: calc(50% + 125px);
+    left: 50%;
+    transform: translateX(-50%);
+    color: #1E3653;
+    font-family: "TT Chocolates", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+}
+
+.bottom-left {
+    width: 400px;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 94px;
+    left: 77px;
+    font-family: "TT Chocolates", sans-serif;
+    color: #1E3653;
+    text-align: center;
+}
+
+.bottomMain {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.bottomExtra {
+    margin: 0;
+    font-size: 14px;
+    font-family: "TT Chocolates", sans-serif;
+    font-weight: 500;
+}
+
+.bottom-right {
+
+    width: 400px;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 94px;
+    right: 79px;
+    font-family: "TT Chocolates", sans-serif;
+    color: #1E3653;
+    text-align: center;
+}
+
+.marg {
+    margin-top: 0;
+    margin-top: 6px;
+}
+
+
+.imgSign img {
+
+    height: 50px;
+
+}
+
+@media print {
+    .no-print {
+        display: none;
+    }
+}

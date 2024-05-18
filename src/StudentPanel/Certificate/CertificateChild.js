@@ -34,7 +34,7 @@ const CertificateChild = ({ data }) => {
             </div>
             <div className=''>
                 {
-                    status === "pending" ? <><button className="border border-[#8e7aca] text-[#8e7aca]  px-2 rounded-lg py-1 text-sm  opacity-40 cursor-not-allowed" type="submit" disabled >Download</button></> : <Link target={"_blank"} to={`/certificatePdf/${_id}`} className="border border-[#8e7aca] text-[#8e7aca]  px-2 rounded-lg py-1 text-sm hover:bg-[#2f3542] hover:duration-500 hover:text-white" type="submit" >Download</Link>
+                    status === "pending" ? <><button className="border border-[#8e7aca] text-[#8e7aca]  px-2 rounded-lg py-1 text-sm  opacity-40 cursor-not-allowed" type="submit" disabled >Preview</button></> : <Link target={"_blank"} to={`/certificatePdf/${_id}`} className="border border-[#8e7aca] text-[#8e7aca]  px-2 rounded-lg py-1 text-sm hover:bg-[#2f3542] hover:duration-500 hover:text-white" type="submit" >Preview</Link>
                 }
             </div>
             {/* modal */}

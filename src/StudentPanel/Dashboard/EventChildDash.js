@@ -18,7 +18,7 @@ const EventChildDash = ({ data }) => {
     });
 
     const { data: studentInfo = [], isLoading: eventsLoading, refetch: eventsRefetch } = useQuery({
-        queryKey: ["studentInfo"],
+        queryKey: ["studentInfo", user?.email],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/studentInfo?email=${user?.email}`, {
                 headers: {

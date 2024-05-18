@@ -14,6 +14,8 @@ import { Oval, TailSpin } from 'react-loader-spinner';
 import { useQuery } from '@tanstack/react-query';
 import { RxCross1, RxCross2 } from 'react-icons/rx';
 import Swal from 'sweetalert2';
+import useAdmin from '../../Components/useAdmin';
+import useStudent from '../../Components/useStudent';
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -39,14 +41,27 @@ const Register = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
-    console.log(from)
+    // console.log(from)
+    const [isAdmin, adminLoading] = useAdmin(userCreatedEmail)
+    const [isStudent, studentLoading] = useStudent(userCreatedEmail)
     useEffect(() => {
         if (token) {
-            navigate('/')
-            setProcessing(false)
-            setPageLoader(false)
+
+            if (isStudent === "student") {
+                setProcessing(false)
+                setPageLoader(false)
+                navigate("/student_panel")
+            }
+            else if (isAdmin === "admin") {
+                setProcessing(false)
+                setPageLoader(false)
+                navigate("/admin_panel")
+            }
+
+
+
         }
-    }, [token])
+    }, [token, isAdmin, isStudent])
     // image validation
 
 
@@ -184,7 +199,8 @@ const Register = () => {
                             stdDob,
                             stdDepartment,
                             stdImageUrl,
-                            role: "student"
+                            role: "admin",
+                            clubName: "Robotics Club"
                         }
                         setRegisterInfo(userInfo);
                         registerWithEmailPass(stdEmail, stdPassword)

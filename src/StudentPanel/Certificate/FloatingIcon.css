@@ -1,0 +1,23 @@
+/* FloatingIcon.css */
+
+.floating-icon {
+    position: fixed;
+    bottom: 20px;
+    /* Adjust this value to move the icon up or down */
+    right: 20px;
+    /* Adjust this value to move the icon left or right */
+    background-color: #007bff;
+    /* Change the background color as needed */
+    color: white;
+    /* Icon color */
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.floating-icon:hover {
+    background-color: #0056b3;
+    /* Change the hover background color as needed */
+}

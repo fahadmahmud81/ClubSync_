@@ -38,11 +38,12 @@ const Dashboard = ({ discoverHandler }) => {
             return data
         }
     })
+    const clubNames = registerClubInfo.map(data => data.clubName);
     // console.log(registerClubInfo)
     const { data: eventsInfo = [], isLoading: eventsInfoLoading, refetch: eventsInfoRefetch } = useQuery({
-        queryKey: ["allEventsForReg", clickText],
+        queryKey: ["allEventsForReg", clubNames, clickText],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/allEventsForReg?filterText=${clickText}`, {
+            const res = await fetch(`http://localhost:5000/allEventsForReg?clubNames=${encodeURIComponent(JSON.stringify(clubNames))}&filterText=${clickText}`, {
                 headers: {
                     authorization: `bearer ${localStorage.getItem("accessToken")}`
                 }
@@ -107,13 +108,9 @@ const Dashboard = ({ discoverHandler }) => {
                                 <button onClick={() => setClickText("")}>All</button>
                             </div>
                             <div className='flex justify-end  gap-4 pb-2'>
-                                <button className="tooltip" data-tip='Programming Club' onClick={() => setClickText("Programming Club")}>P</button>
-                                <button className="tooltip" data-tip='STEM Club' onClick={() => setClickText("STEM Club")}>S</button>
-                                <button className="tooltip" data-tip='Cyber Club' onClick={() => setClickText("Cyber Club")}>C</button>
-                                <button className="tooltip" data-tip='Debate Club' onClick={() => setClickText("Debate Club")}>D</button>
-                                <button className="tooltip" data-tip='Sports Club' onClick={() => setClickText("Sports Club")}>S</button>
-                                <button className="tooltip  tooltip-left" data-tip='Language Club' onClick={() => setClickText("Language Club")}>L</button>
-                                <button className="tooltip tooltip-left" data-tip='Robotics Club' onClick={() => setClickText("Robotics Club")}>R</button>
+                                {
+                                    clubNames && clubNames.map((data, index) => <button key={index} className="tooltip tooltip-left" data-tip={data} onClick={() => setClickText(data)}>{data.charAt(0)}</button>)
+                                }
 
                             </div>
                         </div>

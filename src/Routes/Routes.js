@@ -16,6 +16,8 @@ import SuccessfulPayment from "../Payment/SuccessfulPayment";
 import FailPayment from "../Payment/FailPayment";
 import Certificate from "../StudentPanel/Certificate/Certificate";
 import CertificatePdf from "../StudentPanel/Certificate/CertificatePdf";
+import PrivateAdmin from "./PrivateAdmin";
+import AdminPanel from "../AdminPanel/AdminPanel";
 
 export const routes = createBrowserRouter([
     {
@@ -65,6 +67,14 @@ export const routes = createBrowserRouter([
                     <PrivateStudent>
                         <StudentPanel></StudentPanel>
                     </PrivateStudent>
+                </PrivateRoutes>
+            },
+            {
+                path: '/admin_panel',
+                element: <PrivateRoutes>
+                    <PrivateAdmin>
+                        <AdminPanel></AdminPanel>
+                    </PrivateAdmin>
                 </PrivateRoutes>
             },
             {

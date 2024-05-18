@@ -7,6 +7,7 @@ import Modal from 'react-responsive-modal';
 import { FaBars, FaUserCircle } from 'react-icons/fa';
 import clubLogo from "../../Assets/clubLogo/club_logo.jpg";
 import Swal from 'sweetalert2';
+import mainlogo from './../../Assets/main_logo.png'
 
 const Navbar = ({ open, setOpen }) => {
 
@@ -83,7 +84,7 @@ const Navbar = ({ open, setOpen }) => {
             <div className='lg:block hidden '>
                 <div className='bg-[#DFE0E1] flex justify-between px-24 py-4'>
                     <div>
-                        {/* <img className='h-[50px]' src={clubLogo} alt="" /> */}
+                        <img className='h-[55px]' src={mainlogo} alt="" />
                     </div>
                     <div >
                         {
@@ -119,7 +120,7 @@ const Navbar = ({ open, setOpen }) => {
                         <FaBars className=' text-[#0A4644]' size={20} />
                     </div>
                     <div>
-                        <img className='h-[30px]' src="https://apmv2-live-cms.azurewebsites.net/Ibis/dist/images/logo-full.svg" alt="" />
+                        <img className='h-[40px]' src={mainlogo} alt="" />
                     </div>
                     <div >
                         {

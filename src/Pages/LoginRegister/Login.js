@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 import useSuperAdmin from '../../Components/useSuperAdmin';
 import useClubAdmin from '../../Components/useClubAdmin';
 import useStudent from '../../Components/useStudent';
+import useAdmin from '../../Components/useAdmin';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -21,10 +22,9 @@ const Login = () => {
     const navigate = useNavigate()
     const [tokenEmail, setTokenEmail] = useState('')
     const token = useToken(tokenEmail)
-    const [isSuperAdmin, superAdminLoading] = useSuperAdmin(tokenEmail)
-    const [isClubAdmin, clubAdminLoading] = useClubAdmin(tokenEmail)
+    const [isAdmin, adminLoading] = useAdmin(tokenEmail)
     const [isStudent, studentLoading] = useStudent(tokenEmail)
-    console.log(isStudent)
+    // console.log(isStudent)
     useEffect(() => {
         if (token) {
             // setProcessing(false)
@@ -35,20 +35,16 @@ const Login = () => {
                 setPageLoader(false)
                 navigate("/student_panel")
             }
-            else if (isClubAdmin === "programmingClubAdmin") {
+            else if (isAdmin === "admin") {
                 setProcessing(false)
                 setPageLoader(false)
-                navigate("/news_events")
+                navigate("/admin_panel")
             }
-            else if (isSuperAdmin === "superAdmin") {
-                setProcessing(false)
-                setPageLoader(false)
-                navigate("/achievements")
-            }
+
 
 
         }
-    }, [token, isSuperAdmin, isClubAdmin, isStudent])
+    }, [token, isAdmin, isStudent])
 
     const loginHandler = (event) => {
         event.preventDefault();
