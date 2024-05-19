@@ -200,7 +200,7 @@ const Register = () => {
                             stdDepartment,
                             stdImageUrl,
                             role: "admin",
-                            clubName: "Robotics Club"
+                            clubName: "STEAM Club"
                         }
                         setRegisterInfo(userInfo);
                         registerWithEmailPass(stdEmail, stdPassword)

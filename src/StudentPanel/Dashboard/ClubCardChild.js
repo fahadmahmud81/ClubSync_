@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 const ClubCardChild = ({ data, registerClubInfoRefetch }) => {
     const { user } = useContext(AuthContext)
     // console.log(user?.email)
-    const { _id, clubName, startDate, endDate, startDateNum, endDateNum, fee, image } = data
+    const { _id, clubName, endDate, totalMembers, endDateNum, fee, image, } = data
     const [openRegisterModal, setOpenRegisterModal] = useState(false)
     const todayDate = new Date();
     const formattedDate = todayDate.toLocaleDateString('en-US', {
@@ -64,6 +64,7 @@ const ClubCardChild = ({ data, registerClubInfoRefetch }) => {
         const stdName = studentInfo?.stdName;
         const stdPhone = studentInfo?.stdPhone;
         const stdSession = studentInfo?.stdSession;
+        const stdDepartment = studentInfo?.stdDepartment;
         const stdGender = studentInfo?.stdGender;
         const stdBlood = studentInfo?.stdBlood;
         const stdDob = studentInfo?.stdDob;
@@ -74,7 +75,7 @@ const ClubCardChild = ({ data, registerClubInfoRefetch }) => {
         const registrationDate = formattedDate;
         const clubImage = image;
         const stdClubRegisterInfo = {
-            clubName, uid, stdEmail, stdName, stdPhone, stdSession, stdGender, stdBlood, stdDob, stdImage, registerClubName, registerFee, registrationDateNum, registrationDate, clubMongoDbId, clubImage
+            clubName, uid, stdEmail, stdName, stdPhone, stdSession, stdGender, stdBlood, stdDob, stdImage, registerClubName, registerFee, registrationDateNum, registrationDate, clubMongoDbId, clubImage, stdDepartment
         }
         fetch(`http://localhost:5000/std_club_registration_info`, {
             method: "POST",
@@ -112,7 +113,7 @@ const ClubCardChild = ({ data, registerClubInfoRefetch }) => {
                 </div>
                 <div>
                     <h1 className='font-semibold  text-[15px] pt-1'>{clubName}</h1>
-                    <h1 className='text-sm pt-1 text-[#B4B6BF]'>120 Members</h1>
+                    <h1 className='text-sm pt-1 text-[#B4B6BF]'>{totalMembers ? <>{totalMembers}</> : <>200</>} Members</h1>
 
                     <div className='pt-2'>
                         <Countdown date={endDateNum} renderer={renderer} />
