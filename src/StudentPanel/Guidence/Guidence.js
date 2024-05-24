@@ -69,7 +69,7 @@ const Guidence = () => {
         const stdEmail = user?.email
         const stdSession = studentInfo?.stdSession
         const stdDepartment = studentInfo?.stdDepartment
-        const reply = "Still no message in return";
+        const reply = "no";
         const requestDateNum = new Date().toLocaleDateString();
         const requestDate = formattedDate;
         const data = {
@@ -142,12 +142,12 @@ const Guidence = () => {
             </div>
             {/* modal */}
             {
-                openGuidanceModal && <Modal open={openGuidanceModal} onClose={onCloseGuidanceModal} center >
+                openGuidanceModal && <Modal open={openGuidanceModal} onClose={onCloseGuidanceModal} center classNames={{ modal: 'rounded-xl' }}>
                     <div className='mt-10 lg:w-[600px] '>
                         <form onSubmit={submitHandler} action="">
                             <label className=''>
                                 <span className="text-sm">Type</span>
-                                <select name='type' className="mt-1 rounded-md mb-5 w-full px-3 py-2 bg-white border border-black text-sm shadow-sm focus:outline-none  focus:ring-1 " required>
+                                <select name='type' className="mt-1 rounded-md mb-5 w-full px-3 py-2 bg-white border  text-sm shadow-sm focus:outline-none  focus:ring-1 " required>
 
                                     <option value='Seminar Request'>Seminar Request</option>
                                     <option value='Career Guidance'>Career Guidance</option>
@@ -158,12 +158,12 @@ const Guidence = () => {
                             <label className=''>
                                 <span className="text-sm">Subject</span>
 
-                                <input name='subject' type="tel" className="mt-1 rounded-md mb-5 w-full  px-3 py-2 bg-white border border-black  text-sm shadow-sm placeholder-slate-400 focus:outline-none  focus:ring-1" required />
+                                <input name='subject' type="tel" className="mt-1 rounded-md mb-5 w-full  px-3 py-2 bg-white border   text-sm shadow-sm placeholder-slate-400 focus:outline-none  focus:ring-1" required />
                             </label>
                             <label className=''>
                                 <span className="text-sm">Send To</span>
 
-                                <select name='sendTo' className="mt-1 rounded-md mb-5 w-full px-3 py-2 bg-white border border-black text-sm shadow-sm focus:outline-none  focus:ring-1 " required>
+                                <select name='sendTo' className="mt-1 rounded-md mb-5 w-full px-3 py-2 bg-white border  text-sm shadow-sm focus:outline-none  focus:ring-1 " required>
 
                                     {clubNames.map((club, index) => (
                                         <option key={index} value={club}>{club}</option>
@@ -173,11 +173,9 @@ const Guidence = () => {
                             </label>
                             <label>
                                 <span className="text-sm">Description</span>
-                                <textarea rows={5} name='description' className="mt-1 rounded-md mb-5 w-full px-3 py-2 bg-white border border-black text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:ring-1" required />
+                                <textarea rows={3} name='description' className="mt-1 rounded-md mb-5 w-full px-3 py-2 bg-white border  text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:ring-1" required />
                             </label>
-                            <div className='flex justify-center'>
-                                <button className="border border-[#8e7aca] text-[#8e7aca] font-bold  px-8 rounded-lg py-1  hover:bg-[#2f3542] hover:duration-500 hover:text-white" type="submit" >Submit</button>
-                            </div>
+                            <button className='border w-full p-2 bg-[#0A2647] text-white font-bold hover:bg-black hover:text-white hover:duration-500 rounded-lg' type="submit">Submit Request</button>
 
                         </form>
                     </div>

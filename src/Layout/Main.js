@@ -7,9 +7,9 @@ import { Toaster } from 'react-hot-toast';
 
 const Main = () => {
     const location = useLocation();
-    const pathsWithoutHeader = ['/login', '/register', "/student_panel", '/success_payment', '/fail_payment', '/certificatePdf/:id', '/admin_panel'];
+    const pathsWithoutHeader = ['/login', '/register', "/student_panel", '/success_payment', '/fail_payment', '/certificatePdf/:id', '/admin_panel', "/advisor_panel"];
     const showHeader = !pathsWithoutHeader.includes(location.pathname) && !location.pathname.startsWith('/certificatePdf/');
-    const pathsWithoutFooter = ['/login', '/register', "/student_panel", '/success_payment', '/fail_payment', '/certificatePdf/:id', '/admin_panel'];
+    const pathsWithoutFooter = ['/login', '/register', "/student_panel", '/success_payment', '/fail_payment', '/certificatePdf/:id', '/admin_panel', "/advisor_panel"];
     // const showFooter = !pathsWithoutFooter.includes(location.pathname);
     const showFooter = !pathsWithoutFooter.includes(location.pathname) && !location.pathname.startsWith('/certificatePdf/');
 

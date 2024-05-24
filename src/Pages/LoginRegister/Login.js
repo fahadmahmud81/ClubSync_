@@ -11,6 +11,7 @@ import useSuperAdmin from '../../Components/useSuperAdmin';
 import useClubAdmin from '../../Components/useClubAdmin';
 import useStudent from '../../Components/useStudent';
 import useAdmin from '../../Components/useAdmin';
+import useAdvisor from '../../Components/useAdvisor';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -24,6 +25,7 @@ const Login = () => {
     const token = useToken(tokenEmail)
     const [isAdmin, adminLoading] = useAdmin(tokenEmail)
     const [isStudent, studentLoading] = useStudent(tokenEmail)
+    const [isAdvisor, advisorLoading] = useAdvisor(tokenEmail)
     // console.log(isStudent)
     useEffect(() => {
         if (token) {
@@ -40,11 +42,16 @@ const Login = () => {
                 setPageLoader(false)
                 navigate("/admin_panel")
             }
+            else if (isAdvisor === "advisor") {
+                setProcessing(false)
+                setPageLoader(false)
+                navigate("/advisor_panel")
+            }
 
 
 
         }
-    }, [token, isAdmin, isStudent])
+    }, [token, isAdmin, isStudent, isAdvisor])
 
     const loginHandler = (event) => {
         event.preventDefault();

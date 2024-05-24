@@ -2,6 +2,8 @@ import React from 'react';
 import { MdDelete } from 'react-icons/md';
 import Swal from 'sweetalert2';
 import { FaMessage } from "react-icons/fa6";
+import { TiTick } from "react-icons/ti";
+import { RxCross2 } from 'react-icons/rx';
 
 const GuidanceChild = ({ data, refetch, messageHandler }) => {
     const {
@@ -71,6 +73,15 @@ const GuidanceChild = ({ data, refetch, messageHandler }) => {
             </div>
             <div className=' w-[20%]'>
                 <h1>{clubName}</h1>
+            </div>
+            <div>
+                {
+                    reply === "no" ? <button data-tip="Message not Sent yet" className='tooltip rounded-full  bg-warning p-2 '>
+                        <RxCross2 className='text-white' />
+                    </button> : <button data-tip="Message Sent" className='tooltip rounded-full  bg-green-500 p-2 '>
+                        <TiTick className='text-white' />
+                    </button>
+                }
             </div>
             <div>
                 <button onClick={() => handleMessageClick(data)} data-tip="Your Reply" className='tooltip rounded-full bg-[#3B82F6] p-2'>

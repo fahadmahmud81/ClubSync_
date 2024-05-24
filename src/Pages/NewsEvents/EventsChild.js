@@ -3,7 +3,7 @@ import React from 'react';
 import { IoLocationOutline } from 'react-icons/io5';
 
 const EventsChild = ({ data }) => {
-    const { eventDate, eventTime, headline, venue, eventDetails, ClubName } = data
+    const { eventDate, eventTime, headline, venue, eventDetails, clubName } = data
     const todayDate = new Date();
     const formateDate = format(todayDate, 'PP');
     return (
@@ -16,7 +16,7 @@ const EventsChild = ({ data }) => {
                 </div>
                 <div className='flex justify-between'>
 
-                    <h1>Host: {ClubName}</h1>
+                    <h1>Host: {clubName}</h1>
                 </div>
             </div>
         </div>

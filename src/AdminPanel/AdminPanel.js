@@ -133,7 +133,7 @@ const AdminPanel = () => {
                             <MenuItem component={<Link to="/" />} onClick={adminRegHandler}> <MdOutlineMessage className='inline mr-3 ' size={"18px"}></MdOutlineMessage > <span className='text-sm'>Registration</span></MenuItem>
                             <MenuItem component={<Link to="/" />} onClick={noticeHandler}> <MdOutlineMessage className='inline mr-3 ' size={"18px"}></MdOutlineMessage > <span className='text-sm'>Notice</span></MenuItem>
                             <MenuItem component={<Link to="/" />} onClick={discoverHandler}> <RiCompassDiscoverLine className='inline mr-3 ' size={"18px"}></RiCompassDiscoverLine> <span className='text-sm'>Discover</span></MenuItem>
-                            <MenuItem component={<Link to="/" />} onClick={certificaterHandler}> <FaCertificate className='inline mr-3 ' size={"18px"}></FaCertificate > <span className='text-sm'>Certificate</span></MenuItem>
+                            {/* <MenuItem component={<Link to="/" />} onClick={certificaterHandler}> <FaCertificate className='inline mr-3 ' size={"18px"}></FaCertificate > <span className='text-sm'>Certificate</span></MenuItem> */}
                             <MenuItem component={<Link to="/" />} onClick={guidenceHandler}> <RiGuideLine className='inline mr-3 ' size={"18px"}></RiGuideLine > <span className='text-sm'>Gudience</span></MenuItem>
                             <MenuItem component={<Link to="/" />} onClick={adminBudgetHandler}> <MdOutlineMessage className='inline mr-3 ' size={"18px"}></MdOutlineMessage > <span className='text-sm'>Budget </span></MenuItem>
                             <MenuItem component={<Link to="/" />} onClick={adminKpiHandler}> <MdOutlineMessage className='inline mr-3 ' size={"18px"}></MdOutlineMessage > <span className='text-sm'>KPI</span></MenuItem>
@@ -154,9 +154,9 @@ const AdminPanel = () => {
                 {
                     discover && <AdminDiscover></AdminDiscover>
                 }
-                {
+                {/* {
                     certificate && <AdminCertificate></AdminCertificate>
-                }
+                } */}
                 {
                     guidence && <AdminGuidance></AdminGuidance>
                 }

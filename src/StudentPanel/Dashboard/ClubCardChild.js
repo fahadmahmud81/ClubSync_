@@ -68,7 +68,7 @@ const ClubCardChild = ({ data, registerClubInfoRefetch }) => {
         const stdGender = studentInfo?.stdGender;
         const stdBlood = studentInfo?.stdBlood;
         const stdDob = studentInfo?.stdDob;
-        const stdImage = studentInfo?.stdImage;
+        const stdImage = studentInfo?.stdImageUrl;
         const registerClubName = clubName;
         const registerFee = fee;
         const registrationDateNum = new Date().toLocaleDateString();
@@ -122,7 +122,7 @@ const ClubCardChild = ({ data, registerClubInfoRefetch }) => {
             </div>
             {/* register handler */}
             {
-                openRegisterModal && <Modal open={openRegisterModal} onClose={onCloseRegisterModal} center>
+                openRegisterModal && <Modal open={openRegisterModal} onClose={onCloseRegisterModal} center classNames={{ modal: 'rounded-xl' }}>
                     <div className='mt-10 lg:w-[600px]'>
                         <form onSubmit={registerFormHandler}>
                             <label className=''>

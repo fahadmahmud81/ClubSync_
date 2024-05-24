@@ -16,6 +16,7 @@ import { RxCross1, RxCross2 } from 'react-icons/rx';
 import Swal from 'sweetalert2';
 import useAdmin from '../../Components/useAdmin';
 import useStudent from '../../Components/useStudent';
+import useAdvisor from '../../Components/useAdvisor';
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -44,6 +45,7 @@ const Register = () => {
     // console.log(from)
     const [isAdmin, adminLoading] = useAdmin(userCreatedEmail)
     const [isStudent, studentLoading] = useStudent(userCreatedEmail)
+    const [isAdvisor, advisorLoading] = useAdvisor(userCreatedEmail)
     useEffect(() => {
         if (token) {
 
@@ -57,11 +59,16 @@ const Register = () => {
                 setPageLoader(false)
                 navigate("/admin_panel")
             }
+            else if (isAdvisor === "advisor") {
+                setProcessing(false)
+                setPageLoader(false)
+                navigate("/advisor_panel")
+            }
 
 
 
         }
-    }, [token, isAdmin, isStudent])
+    }, [token, isAdmin, isStudent, isAdvisor])
     // image validation
 
 
@@ -414,7 +421,7 @@ const Register = () => {
                             </select>
                         </label>
 
-                        <div className=''>
+                        <div className='w-full flex flex-col'>
                             <label className="font-bold text-[#0A4644]">Date Of Birth</label>
                             <br />
                             <DatePicker

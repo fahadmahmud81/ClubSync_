@@ -3,8 +3,22 @@ import { Link } from 'react-router-dom';
 
 const PopularContentChild = ({ data }) => {
     const { videoLink, title, description, clubName, popularContent, publishedDate, publishedDateNum, exploreLink } = data
-    const videoId = videoLink.split('v=')[1];
-    const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+    // const videoId = videoLink.split('v=')[1];
+    // const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+    // const getVideoId = (url) => {
+    //     const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    //     const match = url.match(regex);
+    //     return match ? match[1] : null;
+    // };
+    const getVideoId = (url) => {
+        const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+        const match = url.match(regex);
+        return match ? match[1] : null;
+    };
+
+    const videoId = getVideoId(videoLink);
+    const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}` : '';
+
 
     // console.log(exploreLink)
     return (
@@ -17,7 +31,7 @@ const PopularContentChild = ({ data }) => {
                         height="200"
                         src={embedUrl}
                         title={title}
-                        frameBorder="0"
+                        // frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         referrerPolicy="strict-origin-when-cross-origin"
                         allowFullScreen

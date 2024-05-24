@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 
 const EventChildDash = ({ data }) => {
     const { user } = useContext(AuthContext)
-    const { _id, headline, sortHeadline, venue, clubName, clubLogo, regEndDateNum, eventDetails, regEndDate, eventDate, eventTime, companyLogo, companyName, presidentSign, gsSign, presidentName, gsName } = data
+    const { _id, headline, sortHeadline, venue, clubName, clubLogo, regEndDateNum, eventDetails, regEndDate, eventDate, eventTime, companyLogo, companyName, presidentSign, gsSign, presidentName, gsName, eventId, isCertificate, certificateType } = data
     const [openEventRegisterModal, setOpenEventRegisterModal] = useState(false);
     const todayDate = new Date();
     const formattedDate = todayDate.toLocaleDateString('en-US', {
@@ -63,14 +63,14 @@ const EventChildDash = ({ data }) => {
         const stdDob = studentInfo?.stdDob;
         const stdImage = studentInfo?.stdImage;
         const eventClubName = clubName;
-        const eventId = _id;
+        // const eventId = _id;
         const eventRegistrationDateNum = new Date().toLocaleDateString();
         const eventRegistrationDate = formattedDate;
         const eventHeadline = headline;
         const eventRegEndDate = regEndDate;
         const status = "pending";
         const stdEventRegisterInfo = {
-            uid, stdEmail, stdName, stdPhone, stdSession, stdGender, stdBlood, stdDob, stdImage, eventClubName, eventId, eventRegistrationDateNum, eventRegistrationDate, eventHeadline, eventRegEndDate, status, clubLogo, companyLogo, companyName, presidentSign, gsSign, presidentName, gsName, sortHeadline, eventDate
+            uid, stdEmail, stdName, stdPhone, stdSession, stdGender, stdBlood, stdDob, stdImage, eventClubName, eventId, eventRegistrationDateNum, eventRegistrationDate, eventHeadline, eventRegEndDate, status, clubLogo, companyLogo, companyName, presidentSign, gsSign, presidentName, gsName, sortHeadline, eventDate, isCertificate, certificateType
         }
         fetch(`http://localhost:5000/std_event_registration_info`, {
             method: "POST",
@@ -88,7 +88,7 @@ const EventChildDash = ({ data }) => {
                     toast.success('Successfully Registered!')
                 }
                 else {
-                    setOpenEventRegisterModal(false)
+                    // setOpenEventRegisterModal(false)
                     toast.error("You are already registered. Don't worry. ")
                 }
 
@@ -101,13 +101,13 @@ const EventChildDash = ({ data }) => {
                 <div className='flex'>
                     <div className="avatar">
                         <div className="w-11 rounded-full">
-                            <img src={demologo} alt="" />
+                            <img src={clubLogo} alt="" />
                         </div>
 
                     </div>
                     <div className='flex items-center justify-center pl-3'>
                         <div>
-                            <h1 className=' font-semibold text-sm'>{sortHeadline}</h1>
+                            <h1 className=' font-semibold text-sm'>{sortHeadline.slice(0, 25)}..</h1>
                             <h1 className='text-sm text-[#B4B6BF]'>{clubName}</h1>
                         </div>
                     </div>
@@ -118,7 +118,7 @@ const EventChildDash = ({ data }) => {
             </div>
             {/* Modal */}
             {
-                openEventRegisterModal && <Modal open={openEventRegisterModal} onClose={onCloseEventRegModal} center>
+                openEventRegisterModal && <Modal open={openEventRegisterModal} onClose={onCloseEventRegModal} center classNames={{ modal: 'rounded-xl' }}>
                     <div className='mt-10 lg:w-[600px] '>
                         <h1><span className='font-bold'>Club Name:</span>  {clubName}</h1>
                         <h1 className='pt-2'>Title: {headline}</h1>

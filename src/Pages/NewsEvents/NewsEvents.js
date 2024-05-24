@@ -13,17 +13,18 @@ const NewsEvents = () => {
     const formateTodayDate = format(todayDate, 'PP')
     // for react-day-picker
     const date = format(selectedDate, 'PP');
+    const dateNum = selectedDate.toLocaleDateString();
     const month = format(selectedDate, 'MMMM')
     const year = format(selectedDate, 'yyyy')
     const dateWithTime = format(selectedDate, 'PPpp')
     const dateNumber = parseInt(format(selectedDate, "d"))
     const monthNumber = parseInt(format(selectedDate, "M"))
     const yearNumber = parseInt(year)
-    // console.log(date)
+    // console.log(dateNum)
     const { data: latestEvents = [], isLoading: eventsLoading, refetch: eventsRefetch } = useQuery({
-        queryKey: ["latest_news_events", date],
+        queryKey: ["latest_news_events", dateNum],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/latest_news_events?date=${date}`)
+            const res = await fetch(`http://localhost:5000/latest_news_events?dateNum=${dateNum}`)
             const data = await res.json()
             return data
         }

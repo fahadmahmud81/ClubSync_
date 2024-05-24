@@ -1,7 +1,6 @@
 import React from 'react';
 
-
-const Home = () => {
+const AdvisorKpi = () => {
     return (
         <div>
 
@@ -9,4 +8,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default AdvisorKpi;

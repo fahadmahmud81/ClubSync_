@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const CertificateChild = ({ data }) => {
     const {
-        _id, sortHeadline, uid, stdEmail, stdName, stdPhone, stdSession, stdGender, stdBlood, stdDob, stdImage, eventClubName, eventId, eventRegistrationDateNum, eventRegistrationDate, eventHeadline, eventRegEndDate, status, clubLogo, companyLogo, companyName, presidentSign, gsSign, presidentName, gsName, eventDate
+        _id, sortHeadline, uid, stdEmail, stdName, stdPhone, stdSession, stdGender, stdBlood, stdDob, stdImage, eventClubName, eventId, eventRegistrationDateNum, eventRegistrationDate, eventHeadline, eventRegEndDate, status, clubLogo, companyLogo, companyName, presidentSign, gsSign, presidentName, gsName, eventDate, isCertificate
     } = data
 
 
@@ -30,12 +30,18 @@ const CertificateChild = ({ data }) => {
 
             </div>
             <div className=''>
-                <h1>{status}</h1>
+                {
+                    isCertificate === "yes" && <h1>{status}</h1>
+                }
+
             </div>
             <div className=''>
                 {
-                    status === "pending" ? <><button className="border border-[#8e7aca] text-[#8e7aca]  px-2 rounded-lg py-1 text-sm  opacity-40 cursor-not-allowed" type="submit" disabled >Preview</button></> : <Link target={"_blank"} to={`/certificatePdf/${_id}`} className="border border-[#8e7aca] text-[#8e7aca]  px-2 rounded-lg py-1 text-sm hover:bg-[#2f3542] hover:duration-500 hover:text-white" type="submit" >Preview</Link>
+                    isCertificate === "no" ? <>No Certificate</> : <>{
+                        status === "approved" ? <Link target={"_blank"} to={`/certificatePdf/${_id}`} className="border border-[#8e7aca] text-[#8e7aca]  px-2 rounded-lg py-1 text-sm hover:bg-[#2f3542] hover:duration-500 hover:text-white" type="submit" >Preview</Link> : <><button className="border border-[#8e7aca] text-[#8e7aca]  px-2 rounded-lg py-1 text-sm  opacity-40 cursor-not-allowed" type="submit" disabled >Preview</button></>
+                    }</>
                 }
+
             </div>
             {/* modal */}
 

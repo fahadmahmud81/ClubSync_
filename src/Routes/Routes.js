@@ -18,6 +18,8 @@ import Certificate from "../StudentPanel/Certificate/Certificate";
 import CertificatePdf from "../StudentPanel/Certificate/CertificatePdf";
 import PrivateAdmin from "./PrivateAdmin";
 import AdminPanel from "../AdminPanel/AdminPanel";
+import PrivateAdvisor from "./PrivateAdvisor";
+import AdvisorPanel from "../AdvisorPanel/AdvisorPanel";
 
 export const routes = createBrowserRouter([
     {
@@ -75,6 +77,14 @@ export const routes = createBrowserRouter([
                     <PrivateAdmin>
                         <AdminPanel></AdminPanel>
                     </PrivateAdmin>
+                </PrivateRoutes>
+            },
+            {
+                path: '/advisor_panel',
+                element: <PrivateRoutes>
+                    <PrivateAdvisor>
+                        <AdvisorPanel></AdvisorPanel>
+                    </PrivateAdvisor>
                 </PrivateRoutes>
             },
             {

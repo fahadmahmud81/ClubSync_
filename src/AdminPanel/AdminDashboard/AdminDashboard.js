@@ -191,7 +191,7 @@ const AdminDashboard = () => {
                     toast.success('Successfully Submitted!')
                 }
                 else {
-                    setOpenClubModal(false)
+                    // setOpenClubModal(false)
                     toast.error("The club info is already exist ")
                 }
 
@@ -236,7 +236,7 @@ const AdminDashboard = () => {
                     toast.success("Edit successfully")
                 }
                 if (data.modifiedCount !== 1) {
-                    setOpenClubEditModal(false)
+                    // setOpenClubEditModal(false)
                     toast.error("Error")
                 }
             })
@@ -261,7 +261,7 @@ const AdminDashboard = () => {
                     .then(res => res.json())
                     .then(data => {
                         if (data.deletedCount) {
-                            console.log(data)
+                            // console.log(data)
                             clubInfoByClubNameRefetch()
                             Swal.fire({
                                 title: "Deleted!",
@@ -317,7 +317,7 @@ const AdminDashboard = () => {
                             <table className="table table-compact w-full">
                                 <thead className='bg-[#F2F2F2] text-black'>
                                     <tr>
-                                        <th></th>
+                                        {/* <th></th> */}
                                         <th>Club Name</th>
                                         <th>Registration End Date</th>
                                         <th>Registration Fee</th>
@@ -331,7 +331,7 @@ const AdminDashboard = () => {
                                 <tbody>
                                     {
                                         clubInfoByClubName.length && <tr className="hover">
-                                            <th className='bg-white'>1</th>
+                                            {/* <th className='bg-white'>1</th> */}
                                             <td>{clubInfoByClubName[0]?.clubName}</td>
                                             <td className=''>{clubInfoByClubName[0]?.endDate}</td>
                                             <td className=''>{clubInfoByClubName[0]?.fee}</td>
@@ -382,7 +382,7 @@ const AdminDashboard = () => {
                                 <table className="table table-compact w-full">
                                     <thead className='bg-[#0A2647] text-white'>
                                         <tr>
-                                            <th></th>
+                                            {/* <th></th> */}
                                             <th>ID</th>
                                             <th>Name</th>
                                             <th>Department</th>
@@ -399,14 +399,14 @@ const AdminDashboard = () => {
                                     <tbody>
                                         {
                                             clubRegStdInfo && clubRegStdInfo.map((data, i) => <tr key={data._id} className="hover">
-                                                <th className='bg-white'>{i + 1}</th>
+                                                {/* <th className='bg-white'>{i + 1}</th> */}
                                                 <td>{data?.uid}</td>
                                                 <td className=''>{data?.stdName}</td>
                                                 <td className=''>{data?.stdDepartment}</td>
                                                 <td>{data?.stdSession}</td>
                                                 <td className=''>{data?.stdPhone}</td>
                                                 <td className=''>
-                                                    <Link to={`mailto:${data?.stdEmail}`} target="_blank">
+                                                    <Link to={`https://mail.google.com/mail/?view=cm&fs=1&to=${data?.stdEmail}`} target="_blank">
                                                         <button className='rounded-full bg-blue-500 p-2'>
                                                             <MdOutlineEmail className='text-white' />
                                                         </button></Link>
@@ -441,6 +441,7 @@ const AdminDashboard = () => {
                 <dialog id="details_modal_1" className="modal">
                     <div className="modal-box w-6/12 max-w-5xl ">
                         <h3 className="font-bold text-lg">Name: {details?.stdName} </h3>
+                        {/* <h3 className="font-bold text-lg">Name: {details?.stdImage} </h3> */}
                         <p className="py-1 text-justify"><span className='font-bold '>ID: </span> {details?.uid}</p>
                         <p className="py-1 text-justify"><span className='font-bold '>Department: </span>{details?.stdDepartment}  </p>
                         <p className="py-1 text-justify"><span className='font-bold '>Session: </span>{details?.stdSession}  </p>
@@ -460,7 +461,7 @@ const AdminDashboard = () => {
                 </dialog>
             }
             {
-                openClubModal && <Modal open={openClubModal} onClose={onCloseClubModal} center >
+                openClubModal && <Modal open={openClubModal} onClose={onCloseClubModal} center classNames={{ modal: 'rounded-xl' }}>
                     <div className='mt-10 lg:w-[600px] '>
                         <form onSubmit={submitClubHandler} action="">
 
@@ -479,7 +480,7 @@ const AdminDashboard = () => {
 
                                 <input name='regFee' type="number" className="mt-1 rounded-md mb-5 w-full  px-3 py-2 bg-white border   text-sm shadow-sm placeholder-slate-400 focus:outline-none  focus:ring-1" required />
                             </label>
-                            <div className=''>
+                            <div className='w-full flex flex-col'>
                                 <label className="text-sm">Registration End Date</label>
                                 <br />
                                 <DatePicker
@@ -504,7 +505,7 @@ const AdminDashboard = () => {
             }
             {/* edit handler */}
             {
-                clubInfoByClubName && openClubEditModal && <Modal open={openClubEditModal} onClose={onCloseClubEditModal} center >
+                clubInfoByClubName && openClubEditModal && <Modal open={openClubEditModal} onClose={onCloseClubEditModal} center classNames={{ modal: 'rounded-xl' }}>
                     <div className='mt-10 lg:w-[600px] '>
                         <form onSubmit={submitClubEditHandler} action="">
 
@@ -523,7 +524,7 @@ const AdminDashboard = () => {
 
                                 <input name='regFee' type="number" className="mt-1 rounded-md mb-5 w-full  px-3 py-2 bg-white border   text-sm shadow-sm placeholder-slate-400 focus:outline-none  focus:ring-1" required defaultValue={clubInfoByClubName[0]?.fee} />
                             </label>
-                            <div className=''>
+                            <div className='w-full flex flex-col'>
                                 <label className="text-sm">Registration End Date</label>
                                 <br />
                                 <DatePicker
