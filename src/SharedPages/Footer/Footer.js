@@ -24,17 +24,18 @@ const Footer = () => {
                     <h1 className="tracking-widest">DEPARTMENT</h1>
                     <hr className='mt-4 mb-5 border border-red-500 w-14' />
                     <div className=''>
-                        <h1>Dept. of Internet of things and Robotics Engineering</h1>
-                        <h1 className='text-sm hover:text-white hover:tracking-widest hover:duration-500  mt-3'><AiOutlineArrowRight className='inline mb-1 mr-2' />
-                            <a href='https://bdu.ac.bd/academic/undergraduate-education/faculty-of-cyber-physical-systems/dept-of-internet-of-things-and-robotics-engineering/bachelor-of-science-in-internet-of-things-and-roboticsengineering' target="_blank" className=''>Bachelor of Science in IRE</a>
-                        </h1>
-                    </div>
-                    <div className='mt-6'>
                         <h1>Dept. of Educational Technology</h1>
                         <h1 className='text-sm hover:text-white hover:tracking-widest hover:duration-500  mt-3'><AiOutlineArrowRight className='inline mb-1 mr-2' />
                             <a href='https://bdu.ac.bd/https://bdu.ac.bd/academic/undergraduate-education/faculty-of-digital-transformations/department-of-educational-technology/bachelor-of-science-in-educational-technology' target="_blank" className=''>Bachelor of Science in ET</a>
                         </h1>
                     </div>
+                    <div className='mt-6'>
+                        <h1>Dept. of Internet of things and Robotics Engineering</h1>
+                        <h1 className='text-sm hover:text-white hover:tracking-widest hover:duration-500  mt-3'><AiOutlineArrowRight className='inline mb-1 mr-2' />
+                            <a href='https://bdu.ac.bd/academic/undergraduate-education/faculty-of-cyber-physical-systems/dept-of-internet-of-things-and-robotics-engineering/bachelor-of-science-in-internet-of-things-and-roboticsengineering' target="_blank" className=''>Bachelor of Science in IRE</a>
+                        </h1>
+                    </div>
+
                 </div>
                 <div>
 
