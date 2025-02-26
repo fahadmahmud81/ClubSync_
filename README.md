@@ -8,4 +8,4 @@ Student Panel email : mdshafayethossain6530@gmail.com,
 Club Admin Panel email: bdu.club.master@gmail.com, 
 Advisor Panel (Teacher) : 1902023@icte.bdu.ac.bd
 
-Password for All: 123456
+Password for All: 123456  [ Test Purpose Only ]
