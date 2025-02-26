@@ -1,6 +1,6 @@
 # ClubSync Website
 
-Youtube Video : https://www.youtube.com/watch?v=SIX52Zbmim8&t=13s
+YouTube Video : https://www.youtube.com/watch?v=SIX52Zbmim8&t=13s
 
 Website Link: https://club-master-cc804.web.app/
 
